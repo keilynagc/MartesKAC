@@ -13,7 +13,8 @@ namespace ProyectoApi_Martes.Controllers
     public class InicioController : ApiController
     {
         [Route("Inicio/RegistrarUsuario")]
-        [HttpPost] //debido a que el POST en API es hacer un insert//
+        [HttpPost] 
+        //debido a que el POST en API es hacer un insert//
         public int RegistrarUsuario(Usuario entidad)
         {
             try
