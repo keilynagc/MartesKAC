@@ -33,5 +33,25 @@ namespace ProyectoWeb_Martes.Models
 
         }
 
+        public List<Usuario> IniciarSesionUsuario(Usuario entidad)
+        {
+            using (var client = new HttpClient())
+            {
+                //Capturamos la respuesta POST//
+                url += "Inicio/IniciarSesionUsuario";
+                JsonContent jsonEntidad = JsonContent.Create(entidad);
+                var respuesta = client.PostAsync(url, jsonEntidad).Result;
+
+                if (respuesta.IsSuccessStatusCode)
+                    return respuesta.Content.ReadFromJsonAsync<List<Usuario>>().Result;
+
+                return null;
+
+
+            }
+
+        }
+
+
     }
 }
