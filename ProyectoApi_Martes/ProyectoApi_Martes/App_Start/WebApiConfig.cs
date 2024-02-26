@@ -9,9 +9,9 @@ namespace ProyectoApi_Martes
     {
         public static void Register(HttpConfiguration config)
         {
-            // Configuración y servicios de Web API
+            // Web API configuration and services
 
-            // Rutas de Web API
+            // Web API routes
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(

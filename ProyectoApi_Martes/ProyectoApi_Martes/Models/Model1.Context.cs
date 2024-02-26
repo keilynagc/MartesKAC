@@ -28,6 +28,41 @@ namespace ProyectoApi_Martes.Models
         }
     
     
+        public virtual ObjectResult<ConsultarProductos_Result> ConsultarProductos(Nullable<bool> mostrarTodos)
+        {
+            var mostrarTodosParameter = mostrarTodos.HasValue ?
+                new ObjectParameter("MostrarTodos", mostrarTodos) :
+                new ObjectParameter("MostrarTodos", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ConsultarProductos_Result>("ConsultarProductos", mostrarTodosParameter);
+        }
+    
+        public virtual ObjectResult<IniciarSesionUsuario_Result> IniciarSesionUsuario(string identificacion, string contrasenna)
+        {
+            var identificacionParameter = identificacion != null ?
+                new ObjectParameter("Identificacion", identificacion) :
+                new ObjectParameter("Identificacion", typeof(string));
+    
+            var contrasennaParameter = contrasenna != null ?
+                new ObjectParameter("Contrasenna", contrasenna) :
+                new ObjectParameter("Contrasenna", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<IniciarSesionUsuario_Result>("IniciarSesionUsuario", identificacionParameter, contrasennaParameter);
+        }
+    
+        public virtual ObjectResult<RecuperarAccesoUsuario_Result> RecuperarAccesoUsuario(string identificacion, string correoElectronico)
+        {
+            var identificacionParameter = identificacion != null ?
+                new ObjectParameter("Identificacion", identificacion) :
+                new ObjectParameter("Identificacion", typeof(string));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("CorreoElectronico", correoElectronico) :
+                new ObjectParameter("CorreoElectronico", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RecuperarAccesoUsuario_Result>("RecuperarAccesoUsuario", identificacionParameter, correoElectronicoParameter);
+        }
+    
         public virtual int RegistrarUsuario(string identificacion, string contrasenna, string nombre, string correoElectronico)
         {
             var identificacionParameter = identificacion != null ?
@@ -47,19 +82,6 @@ namespace ProyectoApi_Martes.Models
                 new ObjectParameter("CorreoElectronico", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("RegistrarUsuario", identificacionParameter, contrasennaParameter, nombreParameter, correoElectronicoParameter);
-        }
-    
-        public virtual ObjectResult<IniciarSesionUsuario_Result> IniciarSesionUsuario(string identificacion, string contrasenna)
-        {
-            var identificacionParameter = identificacion != null ?
-                new ObjectParameter("Identificacion", identificacion) :
-                new ObjectParameter("Identificacion", typeof(string));
-    
-            var contrasennaParameter = contrasenna != null ?
-                new ObjectParameter("Contrasenna", contrasenna) :
-                new ObjectParameter("Contrasenna", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<IniciarSesionUsuario_Result>("IniciarSesionUsuario", identificacionParameter, contrasennaParameter);
         }
     }
 }

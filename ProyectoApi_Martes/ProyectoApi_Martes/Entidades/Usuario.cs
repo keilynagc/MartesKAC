@@ -7,7 +7,8 @@ using System.Web;
 namespace ProyectoApi_Martes.Entidades
 {
     public class Usuario
-    {   public string Identificacion { get; set; }
+    {
+        public string Identificacion { get; set; }
         public string Contrasenna { get; set; }
         public string Nombre { get; set; }
         public string CorreoElectronico { get; set; }
@@ -18,9 +19,7 @@ namespace ProyectoApi_Martes.Entidades
         public int Codigo { get; set; }
         public string Detalle { get; set; }
         public List<IniciarSesionUsuario_Result> Datos { get; set; }
-
         public IniciarSesionUsuario_Result Dato { get; set; }
-
-
     }
+
 }
