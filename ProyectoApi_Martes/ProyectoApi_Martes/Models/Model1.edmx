@@ -91,7 +91,7 @@
             <Parameter Name="CorreoElectronico" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="EliminarProducto">
-            <Parameter Name="Consecutivo" Mode="In" Type="Int64" />
+          <Parameter Name="Consecutivo" Mode="In" Type="Int64" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="ConsultarProducto_Result">
