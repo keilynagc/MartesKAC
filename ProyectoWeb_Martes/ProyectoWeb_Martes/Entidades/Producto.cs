@@ -1,7 +1,6 @@
-﻿using ProyectoApi_Martes.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace ProyectoApi_Martes.Entidades
+namespace ProyectoWeb_Martes.Entidades
 {
     public class Producto
     {
@@ -19,7 +18,7 @@ namespace ProyectoApi_Martes.Entidades
     {
         public int Codigo { get; set; }
         public string Detalle { get; set; }
-        public object Datos { get; set; }
-        public object Dato { get; set; }
+        public List<Producto> Datos { get; set; }
+        public Producto Dato { get; set; }
     }
 }
